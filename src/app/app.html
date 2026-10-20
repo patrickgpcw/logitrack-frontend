@@ -1,0 +1,64 @@
+<div class="workspace">
+  <header>
+    <a class="brand" href="/" aria-label="LogiTrack, início">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      LogiTrack<span class="brand-dot">.</span>
+    </a>
+    <span class="environment">Ambiente de demonstração</span>
+  </header>
+  <main>
+    <p class="eyebrow">TORRE DE CONTROLE LOGÍSTICO</p>
+    <h1>Cada entrega,<br />uma visão completa.</h1>
+    <p class="intro">
+      Acompanhe sua operação, identifique atrasos e mantenha as decisões conectadas ao que acontece
+      na estrada.
+    </p>
+    <section class="connection-card" aria-labelledby="connection-title">
+      <div>
+        <p class="eyebrow">CONEXÃO COM A OPERAÇÃO</p>
+        <h2 id="connection-title">Disponibilidade do serviço</h2>
+        <p aria-live="polite" class="status" [class.online]="connection() === 'online'">
+          <span class="status-dot" aria-hidden="true"></span>
+          @switch (connection()) {
+            @case ('checking') {
+              Verificando conexão…
+            }
+            @case ('online') {
+              Serviço disponível
+            }
+            @case ('offline') {
+              Serviço indisponível. Tente novamente em instantes.
+            }
+          }
+        </p>
+      </div>
+      <button type="button" (click)="checkConnection()" [disabled]="connection() === 'checking'">
+        Verificar conexão <span aria-hidden="true">↗</span>
+      </button>
+    </section>
+    <section class="preview" aria-labelledby="preview-title">
+      <div class="section-heading">
+        <h2 id="preview-title">Sua operação em um só lugar</h2>
+        <span>Em desenvolvimento</span>
+      </div>
+      <div class="features">
+        <article>
+          <span class="number">01</span>
+          <h3>Fretes e entregas</h3>
+          <p>Planejamento de cargas, veículos e prazos.</p>
+        </article>
+        <article>
+          <span class="number">02</span>
+          <h3>Visibilidade da frota</h3>
+          <p>Posições e andamento de cada viagem.</p>
+        </article>
+        <article>
+          <span class="number">03</span>
+          <h3>Gestão de incidentes</h3>
+          <p>Atenção aos atrasos que precisam de uma decisão.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer>LogiTrack · Plataforma B2B <span>Fundação do projeto · T01</span></footer>
+</div>
